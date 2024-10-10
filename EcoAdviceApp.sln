@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcoAdviceAppApi", "EcoAdviceAppApi\EcoAdviceAppApi.csproj", "{91C246E6-2F09-4B62-B346-ACE207CC0BF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{5C3F89A2-AB13-4A74-86D8-9DF2AE94A956}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91C246E6-2F09-4B62-B346-ACE207CC0BF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91C246E6-2F09-4B62-B346-ACE207CC0BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91C246E6-2F09-4B62-B346-ACE207CC0BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91C246E6-2F09-4B62-B346-ACE207CC0BF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C3F89A2-AB13-4A74-86D8-9DF2AE94A956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C3F89A2-AB13-4A74-86D8-9DF2AE94A956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C3F89A2-AB13-4A74-86D8-9DF2AE94A956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C3F89A2-AB13-4A74-86D8-9DF2AE94A956}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57AD7CE5-F119-4177-A0B4-96A143F0DEB6}
+	EndGlobalSection
+EndGlobal

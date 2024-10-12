@@ -4,42 +4,46 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using DAL.Data;
 using DAL.Models;
-using Microsoft.EntityFrameworkCore;
+using EcoAdviceAppApi.DTOs;
+using EcoAdviceAppApi.Mappings;
 
 namespace EcoAdviceAppApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PostsController : ControllerBase
+    public class PostsController(ContextDAL _context) : ControllerBase
     {
-        private readonly ContextDAL _context;
-
-        public PostsController(ContextDAL context)
-        {
-            _context = context;
-        }
 
         // GET: api/Posts
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Post>>> GetPost()
+        public async Task<ActionResult<IEnumerable<PostDto>>> GetPost()
         {
-            return await _context.Posts.ToListAsync();
+            var posts = await _context.Posts.Include(p => p.User).ToListAsync();
+
+            // Use the extension method to convert to PostDto
+            var postDtos = posts.Select(p => p.ToDto()).ToList();
+
+            return Ok(postDtos);
         }
 
         // GET: api/Posts/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Post>> GetPost(int id)
+        public async Task<ActionResult<PostDto>> GetPost(int id)
         {
-            var post = await _context.Posts.FindAsync(id);
+            var post = await _context.Posts.Include(p => p.User).FirstOrDefaultAsync(p => p.Id == id);
 
             if (post == null)
             {
                 return NotFound();
             }
 
-            return post;
+            // Use the extension method for mapping
+            var postDto = post.ToDto();
+
+            return Ok(postDto);
         }
 
         // PUT: api/Posts/5
@@ -76,12 +80,12 @@ namespace EcoAdviceAppApi.Controllers
         // POST: api/Posts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Post>> PostPost(Post post)
+        public async Task<ActionResult<PostDto>> PostPost(Post post)
         {
             _context.Posts.Add(post);
             await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetPost", new { id = post.Id }, post);
+            var postDto = post.ToDto();
+            return CreatedAtAction(nameof(GetPost), new { id = post.Id }, postDto);
         }
 
         // DELETE: api/Posts/5

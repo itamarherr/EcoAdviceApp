@@ -91,6 +91,7 @@ namespace EcoAdviceAppApi.Controllers
         // POST: api/Posts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Roles ="admin")]
   
         public async Task<ActionResult<PostDto>> CreatePost([FromBody] PostDto postDto)
         {
@@ -105,7 +106,7 @@ namespace EcoAdviceAppApi.Controllers
                 Content = postDto.Content,
                 PostDate = DateTime.UtcNow,
                 UserId = int.Parse(userIdClaim),
-            ParentPostId = postDto.ParentPostId
+                ParentPostId = postDto.ParentPostId
             };
             _context.Posts.Add(post);
             await _context.SaveChangesAsync();

@@ -71,7 +71,7 @@ public class ContextDAL : IdentityDbContext<AppUser, IdentityRole<int>, int>
             new IdentityUserRole<int>()
             {
                 RoleId = 1,
-                UserId = 1
+                UserId = 2
             }
         );
 

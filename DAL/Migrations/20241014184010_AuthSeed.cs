@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class SeedAuth : Migration
+    public partial class AuthSeed : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -191,22 +191,22 @@ namespace DAL.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { 1, "55484ad2-0bea-4398-8d3e-ac23d0dfd8a3", "admin", "ADMIN" });
+                values: new object[] { 1, "e90e08cc-2b36-45e0-ae7b-03044c122024", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { 1, 0, "6e84e751-73cf-4620-b732-947116372feb", "itamar@example.com", false, false, null, "Itamar", "ITAMAR@GMAIL.COM", null, "AQAAAAIAAYagAAAAEI8b0ZzzO51kxlNooRKlqVKTMKYlRfCTV8twh9jsEJjGvuZ+VBpX81YjVavHjhNqbA==", null, false, "560e6ac4-a71f-4963-9e02-ef6e348020ef", false, "itamar@example.com" },
-                    { 2, 0, "48eb463b-7f04-4234-ba2d-a2376109949d", "user2@example.com", false, false, null, "User2", "USER2@EXAMPLE.COM", "USER2@EXAMPLE.COM", "AQAAAAIAAYagAAAAEC/IEoJZ4KnPsOwPQS7WmkG2VRHddjwDs8ippmyfnyGsIl2wlad3WeclXONLzCw55Q==", null, false, "82cc9f5e-12b3-4757-9ef1-92f23d98a729", false, "user2@example.com" },
-                    { 3, 0, "bd036a20-4b45-48a3-9adf-3a68e8ff7340", "user3@example.com", false, false, null, "User3", "USER3@EXAMPLE.COM", "USER3@EXAMPLE.COM", "AQAAAAIAAYagAAAAEHrbP9toCXI0di5tcsZlW5fBDorD44Vh6BUvPcGfbfbyN8lzJjRMdvsmhZHAMUeltg==", null, false, "f34d57a5-8b5c-471a-9f86-820fbc6f5fe8", false, "user3@example.com" }
+                    { 1, 0, "f0592fd4-3f77-4d4d-bee0-aacefc8f19a4", "itamar@example.com", false, false, null, "Itamar", "ITAMAR@GMAIL.COM", null, "AQAAAAIAAYagAAAAEGuFBxg61qIGr2BElXm03yinbI8hgL4kFDQz2UlctXv+UI9LAiyzj3pyDyO07p6JUg==", null, false, "ddfea76a-c6dd-47b4-8893-f96693eb00d7", false, "itamar@example.com" },
+                    { 2, 0, "4da66336-f339-4440-8226-a0df3ef4d579", "user2@example.com", false, false, null, "User2", "USER2@EXAMPLE.COM", "USER2@EXAMPLE.COM", "AQAAAAIAAYagAAAAEKEafFm/Pv7lg8nouK/ENTuRio4ej4xRD1MouTBmY43kFvcVW5a0S+cyYX9xnnkpIw==", null, false, "fb4b5cd6-f83a-4d88-a980-7ffd6ad4d34e", false, "user2@example.com" },
+                    { 3, 0, "d93c9380-fa0f-4f34-84f0-219bbf8a3ba9", "user3@example.com", false, false, null, "User3", "USER3@EXAMPLE.COM", "USER3@EXAMPLE.COM", "AQAAAAIAAYagAAAAENnSeXgIOnIMXFC3Q1JGfNWeD527U5sYlTcWQ1CMCoEG/UQws2QekQ/xZz8ClqtzFA==", null, false, "f3b78e5c-ea27-4081-a91b-6691106a248c", false, "user3@example.com" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { 1, 1 });
+                values: new object[] { 1, 2 });
 
             migrationBuilder.InsertData(
                 table: "Posts",

@@ -42,6 +42,9 @@ namespace EcoAdviceAppApi.Controllers
                 {
                     return Unauthorized();
                 }
+
+ 
+
                 var result = await signInManager.PasswordSignInAsync(
                     user.Email, dto.Password, false, false
                     );

@@ -98,15 +98,15 @@ namespace DAL.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6e84e751-73cf-4620-b732-947116372feb",
+                            ConcurrencyStamp = "f0592fd4-3f77-4d4d-bee0-aacefc8f19a4",
                             Email = "itamar@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             Name = "Itamar",
                             NormalizedEmail = "ITAMAR@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEI8b0ZzzO51kxlNooRKlqVKTMKYlRfCTV8twh9jsEJjGvuZ+VBpX81YjVavHjhNqbA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGuFBxg61qIGr2BElXm03yinbI8hgL4kFDQz2UlctXv+UI9LAiyzj3pyDyO07p6JUg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "560e6ac4-a71f-4963-9e02-ef6e348020ef",
+                            SecurityStamp = "ddfea76a-c6dd-47b4-8893-f96693eb00d7",
                             TwoFactorEnabled = false,
                             UserName = "itamar@example.com"
                         },
@@ -114,16 +114,16 @@ namespace DAL.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "48eb463b-7f04-4234-ba2d-a2376109949d",
+                            ConcurrencyStamp = "4da66336-f339-4440-8226-a0df3ef4d579",
                             Email = "user2@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             Name = "User2",
                             NormalizedEmail = "USER2@EXAMPLE.COM",
                             NormalizedUserName = "USER2@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEC/IEoJZ4KnPsOwPQS7WmkG2VRHddjwDs8ippmyfnyGsIl2wlad3WeclXONLzCw55Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKEafFm/Pv7lg8nouK/ENTuRio4ej4xRD1MouTBmY43kFvcVW5a0S+cyYX9xnnkpIw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "82cc9f5e-12b3-4757-9ef1-92f23d98a729",
+                            SecurityStamp = "fb4b5cd6-f83a-4d88-a980-7ffd6ad4d34e",
                             TwoFactorEnabled = false,
                             UserName = "user2@example.com"
                         },
@@ -131,16 +131,16 @@ namespace DAL.Migrations
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bd036a20-4b45-48a3-9adf-3a68e8ff7340",
+                            ConcurrencyStamp = "d93c9380-fa0f-4f34-84f0-219bbf8a3ba9",
                             Email = "user3@example.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             Name = "User3",
                             NormalizedEmail = "USER3@EXAMPLE.COM",
                             NormalizedUserName = "USER3@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHrbP9toCXI0di5tcsZlW5fBDorD44Vh6BUvPcGfbfbyN8lzJjRMdvsmhZHAMUeltg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENnSeXgIOnIMXFC3Q1JGfNWeD527U5sYlTcWQ1CMCoEG/UQws2QekQ/xZz8ClqtzFA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f34d57a5-8b5c-471a-9f86-820fbc6f5fe8",
+                            SecurityStamp = "f3b78e5c-ea27-4081-a91b-6691106a248c",
                             TwoFactorEnabled = false,
                             UserName = "user3@example.com"
                         });
@@ -233,7 +233,7 @@ namespace DAL.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "55484ad2-0bea-4398-8d3e-ac23d0dfd8a3",
+                            ConcurrencyStamp = "e90e08cc-2b36-45e0-ae7b-03044c122024",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -325,7 +325,7 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = 1,
+                            UserId = 2,
                             RoleId = 1
                         });
                 });

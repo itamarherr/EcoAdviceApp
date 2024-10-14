@@ -13,6 +13,7 @@ namespace EcoAdviceAppApi.Controllers
     public class AuthController(
         UserManager<AppUser> userManager, 
         SignInManager<AppUser> signInManager,
+        RoleManager<IdentityRole<int>> roleManager,
         JwtService jwtService
         ) : ControllerBase
     {

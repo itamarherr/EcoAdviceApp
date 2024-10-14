@@ -9,11 +9,14 @@ using DAL.Data;
 using DAL.Models;
 using EcoAdviceAppApi.DTOs;
 using EcoAdviceAppApi.Mappings;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace EcoAdviceAppApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
+    [Route("api/[controller]")]
     public class PostsController(ContextDAL _context) : ControllerBase
     {
 
@@ -49,14 +52,22 @@ namespace EcoAdviceAppApi.Controllers
         // PUT: api/Posts/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPost(int id, Post post)
+        public async Task<IActionResult> UpdatePost(int id, [FromBody] PostDto postDto)
         {
-            if (id != post.Id)
+            if (id != postDto.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(post).State = EntityState.Modified;
+            var post = await _context.Posts.FindAsync(id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            // Only update allowed fields
+            post.Content = postDto.Content;
+            post.ParentPostId = postDto.ParentPostId;
 
             try
             {
@@ -80,16 +91,33 @@ namespace EcoAdviceAppApi.Controllers
         // POST: api/Posts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<PostDto>> PostPost(Post post)
+  
+        public async Task<ActionResult<PostDto>> CreatePost([FromBody] PostDto postDto)
         {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+            {
+                return BadRequest("Invalid user ID");
+            }
+
+            var post = new Post
+            {
+                Content = postDto.Content,
+                PostDate = DateTime.UtcNow,
+                UserId = int.Parse(userIdClaim),
+            ParentPostId = postDto.ParentPostId
+            };
             _context.Posts.Add(post);
             await _context.SaveChangesAsync();
-            var postDto = post.ToDto();
+
+            var createdPost = await _context.Posts.Include(p => p.User).FirstAsync(p => p.Id == post.Id);
+            var createdPostDto = createdPost.ToDto();
             return CreatedAtAction(nameof(GetPost), new { id = post.Id }, postDto);
         }
 
         // DELETE: api/Posts/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeletePost(int id)
         {
             var post = await _context.Posts.FindAsync(id);

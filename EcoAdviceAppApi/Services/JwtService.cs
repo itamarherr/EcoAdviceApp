@@ -15,11 +15,12 @@ namespace EcoAdviceAppApi.Services
         {
             var jwtSettings = configuration.GetSection("JwtSettings");
             var secretKey = jwtSettings["SecretKey"] ?? throw new Exception("secret key must be set in app setting");
-            var claims = new List<Claim>()
+            var claims = new List<Claim>
             {
-                new(JwtRegisteredClaimNames.Sub, user.UserName),
-                new(JwtRegisteredClaimNames.Email, user.Email),
-            };
+               new(ClaimTypes.NameIdentifier, user.Id.ToString()), 
+               //new(ClaimTypes.Email, user.Email),
+               new(ClaimTypes.Name, user.UserName)
+             };
             var isAdmin = await userManager.IsInRoleAsync(user, "admin");
             if (isAdmin)
             {
@@ -31,7 +32,7 @@ namespace EcoAdviceAppApi.Services
 
             JwtSecurityToken token = new JwtSecurityToken(
                issuer: jwtSettings["Issuer"],
-               audience: jwtSettings["ReactFrontSide"],
+               audience: jwtSettings["Audience"],
                expires: DateTime.UtcNow.AddDays(1),
                claims: claims,
                signingCredentials: creds

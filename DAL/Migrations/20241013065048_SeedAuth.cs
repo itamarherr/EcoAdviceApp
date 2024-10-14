@@ -191,16 +191,16 @@ namespace DAL.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { 1, "0b80c932-2f07-40dc-8bb7-5dc1923fc2cf", "admin", "ADMIN" });
+                values: new object[] { 1, "55484ad2-0bea-4398-8d3e-ac23d0dfd8a3", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { 1, 0, "d08a2ba7-c8de-4f82-ac51-b7b7e373b5b9", "itamar@example.com", false, false, null, "Itamar", "ITAMAR@GMAIL.COM", null, "AQAAAAIAAYagAAAAEHOjrfr8d2PBxqPA2aGmN3Ga2hn9FXoCJUW7Vlx5agU1hARFExLsGm4Lx5St+OCqwA==", null, false, null, false, "itamar@example.com" },
-                    { 2, 0, "73e3f626-c266-4680-a23e-7226ea623c67", "user2@example.com", false, false, null, "User2", "USER2@EXAMPLE.COM", "USER2@EXAMPLE.COM", "AQAAAAIAAYagAAAAEB74L8XiIbUgiEJzSEigd2KXAeQclxUTriLf0cPLKF478K3b6Rx2yJCrr7iUTRYKQw==", null, false, null, false, "user2@example.com" },
-                    { 3, 0, "0a9b553f-c11d-43fb-bece-674bf30a6e04", "user3@example.com", false, false, null, "User3", "USER3@EXAMPLE.COM", "USER3@EXAMPLE.COM", "AQAAAAIAAYagAAAAEPHjJcnw2CWz0+Jwikgtpi9X7pcJOslyL/NFQFnEfQMq0Q1FLP76lC1/s8xnwFQRMQ==", null, false, null, false, "user3@example.com" }
+                    { 1, 0, "6e84e751-73cf-4620-b732-947116372feb", "itamar@example.com", false, false, null, "Itamar", "ITAMAR@GMAIL.COM", null, "AQAAAAIAAYagAAAAEI8b0ZzzO51kxlNooRKlqVKTMKYlRfCTV8twh9jsEJjGvuZ+VBpX81YjVavHjhNqbA==", null, false, "560e6ac4-a71f-4963-9e02-ef6e348020ef", false, "itamar@example.com" },
+                    { 2, 0, "48eb463b-7f04-4234-ba2d-a2376109949d", "user2@example.com", false, false, null, "User2", "USER2@EXAMPLE.COM", "USER2@EXAMPLE.COM", "AQAAAAIAAYagAAAAEC/IEoJZ4KnPsOwPQS7WmkG2VRHddjwDs8ippmyfnyGsIl2wlad3WeclXONLzCw55Q==", null, false, "82cc9f5e-12b3-4757-9ef1-92f23d98a729", false, "user2@example.com" },
+                    { 3, 0, "bd036a20-4b45-48a3-9adf-3a68e8ff7340", "user3@example.com", false, false, null, "User3", "USER3@EXAMPLE.COM", "USER3@EXAMPLE.COM", "AQAAAAIAAYagAAAAEHrbP9toCXI0di5tcsZlW5fBDorD44Vh6BUvPcGfbfbyN8lzJjRMdvsmhZHAMUeltg==", null, false, "f34d57a5-8b5c-471a-9f86-820fbc6f5fe8", false, "user3@example.com" }
                 });
 
             migrationBuilder.InsertData(

@@ -40,7 +40,7 @@ public class ContextDAL : IdentityDbContext<AppUser, IdentityRole<int>, int>
                    Email = "itamar@example.com",
                    NormalizedEmail = "ITAMAR@GMAIL.COM",
                    UserName = "itamar@example.com",
-                   ConcurrencyStamp = Guid.NewGuid().ToString(),
+                   SecurityStamp = Guid.NewGuid().ToString(),
                    PasswordHash = hasher.HashPassword(null, "123456")
                },
         new AppUser
@@ -51,7 +51,7 @@ public class ContextDAL : IdentityDbContext<AppUser, IdentityRole<int>, int>
             NormalizedEmail = "USER2@EXAMPLE.COM",
             UserName = "user2@example.com",
             NormalizedUserName = "USER2@EXAMPLE.COM",
-            ConcurrencyStamp = Guid.NewGuid().ToString(),
+            SecurityStamp = Guid.NewGuid().ToString(),
             PasswordHash = hasher.HashPassword(null, "123456")
         },
         new AppUser
@@ -62,7 +62,7 @@ public class ContextDAL : IdentityDbContext<AppUser, IdentityRole<int>, int>
             NormalizedEmail = "USER3@EXAMPLE.COM",
             UserName = "user3@example.com",
             NormalizedUserName = "USER3@EXAMPLE.COM",
-            ConcurrencyStamp = Guid.NewGuid().ToString(),
+            SecurityStamp = Guid.NewGuid().ToString(),
             PasswordHash = hasher.HashPassword(null, "123456")
         }
            );
